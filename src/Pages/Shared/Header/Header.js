@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import Banner from "../../Banner/Banner";
+import WhyUs from "../../WhyUs/WhyUs";
 
 const Header = () => {
   return (
@@ -41,6 +42,7 @@ const Header = () => {
         </Container>
       </Navbar>
       <Banner></Banner>
+      <WhyUs></WhyUs>
     </>
   );
 };

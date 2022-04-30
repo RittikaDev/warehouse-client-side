@@ -1,10 +1,9 @@
 import React from "react";
 import "./Header.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import Banner from "../../Banner/Banner";
-import WhyUs from "../../WhyUs/WhyUs";
-import Queries from "../../Queries/Queries";
-import Items from "../../Items/Items";
+
+import Login from "../../Login/Login/Login";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -17,16 +16,16 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link className="link" href="/">
+              <Nav.Link className="link nav-link" href="/">
                 Home
               </Nav.Link>
-              <Nav.Link className="link" href="#link">
+              <Nav.Link className="link nav-link" href="#link">
                 Donation
               </Nav.Link>
-              <Nav.Link className="link" href="/events">
+              <Nav.Link className="link nav-link" href="/events">
                 Events
               </Nav.Link>
-              <Nav.Link className="link" href="#link">
+              <Nav.Link className="link nav-link" href="#link">
                 Blog
               </Nav.Link>
               {/* {user ? (
@@ -36,17 +35,15 @@ const Header = () => {
             ) : (
               <Link to="/register">Register</Link>
             )} */}
-
+              <Link className="link nav-link" to="/register">
+                Register
+              </Link>
               {/* <Link to="/registervolunteer">Register Volunteer</Link> */}
               <Nav.Link href="#link">Admin</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Banner></Banner>
-      <Items />
-      <WhyUs></WhyUs>
-      <Queries />
     </>
   );
 };

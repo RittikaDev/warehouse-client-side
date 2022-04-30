@@ -4,6 +4,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import Banner from "../../Banner/Banner";
 import WhyUs from "../../WhyUs/WhyUs";
 import Queries from "../../Queries/Queries";
+import Items from "../../Items/Items";
 
 const Header = () => {
   return (
@@ -43,6 +44,7 @@ const Header = () => {
         </Container>
       </Navbar>
       <Banner></Banner>
+      <Items />
       <WhyUs></WhyUs>
       <Queries />
     </>

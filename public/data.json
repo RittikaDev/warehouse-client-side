@@ -1,0 +1,204 @@
+[
+  {
+    "id": 1,
+    "title": "Rice",
+    "image": "https://i.ibb.co/Vp1cW2K/rice.jpg",
+    "description": "Chinigura Rice. Price is mentioned per kg.",
+    "quantity": "200",
+    "supplier": "Pran",
+    "sold": false,
+    "price": "70tk"
+  },
+  {
+    "id": 2,
+    "title": "Daal",
+    "image": "https://i.ibb.co/dWyqJk3/daal.jpg",
+    "description": "Moshur Daal. Price is mentioned per kg.",
+    "quantity": "25",
+    "supplier": "Pran",
+    "sold": false,
+    "price": "135tk"
+  },
+  {
+    "id": 3,
+    "title": "All Purpose Flour",
+    "image": "https://i.ibb.co/TKF5D3F/flour.jpg",
+    "description": "Teer whole wheat flour. Price is mentioned per kg.",
+    "quantity": "220",
+    "supplier": "Teer",
+    "sold": false,
+    "price": "55tk"
+  },
+  {
+    "id": 4,
+    "title": "Corn Flour",
+    "image": "https://i.ibb.co/p2kYnZp/corn-flour.jpg",
+    "description": "Price is mentioned per 400gm",
+    "quantity": "850",
+    "supplier": "Foster Clark",
+    "sold": false,
+    "price": "140tk"
+  },
+
+  {
+    "id": 5,
+    "title": "Cumin",
+    "image": "https://i.ibb.co/gdLLbZH/cumin.jpg",
+    "description": "Radhuni Cumin Powder. Price is mentioned per 100gm.",
+    "quantity": "850",
+    "supplier": "Radhuni",
+    "sold": false,
+    "price": "88tk"
+  },
+
+  {
+    "id": 6,
+    "title": "Garlic",
+    "image": "https://i.ibb.co/bvM9Kv1/garlic.jpg",
+    "description": "Garlic. Price is mentioned per 50gm.",
+    "quantity": "900",
+    "supplier": "Ahmeds Vendor",
+    "sold": false,
+    "price": "45tk"
+  },
+  {
+    "id": 7,
+    "title": "Oil",
+    "image": "https://i.ibb.co/s5kx8mF/oil.jpg",
+    "description": "Price is mentioned per littre",
+    "quantity": "500",
+    "supplier": "Teer",
+    "sold": false,
+    "price": "190tk"
+  },
+  {
+    "id": 8,
+    "title": "Potato",
+    "image": "https://i.ibb.co/7VXX6J7/potato.jpg",
+    "description": "Red Potato Cardinal. Price is mentioned per kg.",
+    "quantity": "550",
+    "supplier": "Quder's store",
+    "sold": false,
+    "price": "25tk"
+  },
+  {
+    "id": 9,
+    "title": "Ginger",
+    "image": "https://i.ibb.co/fnkr7KL/ginger.jpg",
+    "description": "Local Ginger. Price is mentioned per 500gm",
+    "quantity": "1900",
+    "supplier": "Local",
+    "sold": false,
+    "price": "65tk"
+  },
+  {
+    "id": 10,
+    "title": "Lemon",
+    "image": "https://i.ibb.co/M6d9HnR/lemon.jpg",
+    "description": "Kagozi Lemon. Price is mentioned per piece",
+    "quantity": "220",
+    "supplier": "Local Vendor",
+    "sold": false,
+    "price": "39tk"
+  },
+  {
+    "id": 11,
+    "title": "Coffee",
+    "image": "https://i.ibb.co/3db5gS4/coffee.jpg",
+    "description": "Nestlé Nescafé Classic Instant Coffee Jar(200gm)",
+    "quantity": "120",
+    "supplier": "Nestle",
+    "sold": false,
+    "price": "350tk"
+  },
+  {
+    "id": 12,
+    "title": "Cinnamon",
+    "image": "https://i.ibb.co/k0SqR09/cinnamon.jpg",
+    "description": "Cinnamon (Daruchini) Whole(100gm)",
+    "quantity": "550",
+    "supplier": "Ekota",
+    "sold": false,
+    "price": "49tk"
+  },
+  {
+    "id": 13,
+    "title": "Suger",
+    "image": "https://i.ibb.co/tmJjJ28/suger.jpg",
+    "description": "Fresh Refined Suger(1kg)",
+    "quantity": "200",
+    "supplier": "Fresh",
+    "sold": false,
+    "price": "85tk"
+  },
+  {
+    "id": 14,
+    "title": "Salt",
+    "image": "https://i.ibb.co/TmQkBb7/salt.jpg",
+    "description": "Fresh Refined Salt(1kg)",
+    "quantity": "25",
+    "supplier": "Fresh",
+    "sold": false,
+    "price": "35tk"
+  },
+  {
+    "id": 15,
+    "title": "Black Pepper",
+    "image": "https://i.ibb.co/7Wqb4dQ/black-pepper.jpg",
+    "description": "Farmer's Gold Black Pepper (Gol Morich) Powder(100 gm)",
+    "quantity": "1200",
+    "supplier": "Farmer's Gold",
+    "sold": false,
+    "price": "155tk"
+  },
+  {
+    "id": 16,
+    "title": "Onion",
+    "image": "https://i.ibb.co/5cL92Wf/onion.jpg",
+    "description": "Lal Peyaj (Onion Red Imported)(1kg)",
+    "quantity": "220",
+    "supplier": "local vendor",
+    "sold": false,
+    "price": "35tk"
+  },
+  {
+    "id": 17,
+    "title": "Banana",
+    "image": "https://i.ibb.co/YbwM1xY/banana.jpg",
+    "description": "Banana Chompa(12 pcs)",
+    "quantity": "40",
+    "supplier": "Local Vendor",
+    "sold": false,
+    "price": "120tk"
+  },
+  {
+    "id": 18,
+    "title": "Strawberry",
+    "image": "https://i.ibb.co/2PbBGyf/strawberry.jpg",
+    "description": "Strawberry Imported(250gm)",
+    "quantity": "550",
+    "supplier": "Imported",
+    "sold": false,
+    "price": "225tk"
+  },
+  {
+    "id": 19,
+    "title": "Blueberry",
+    "image": "https://i.ibb.co/PgVsYQm/blueberry.jpg",
+    "description": "Golden Garden Blueberry Plum(250 gm)",
+    "quantity": "550",
+    "supplier": "Golden Garden",
+    "sold": false,
+    "price": "250tk"
+  },
+  {
+    "id": 20,
+    "title": "Coriander",
+    "image": "https://i.ibb.co/5kwxj3q/coriander.jpg",
+    "description": "Coriander Leaves (Dhonia Pata)(10 gm)",
+    "quantity": "220",
+    "supplier": "Local Vendor",
+    "sold": false,
+    "price": "30tk"
+  }
+]

@@ -5,6 +5,8 @@ import Banner from "./Pages/Banner/Banner";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
 import Header from "./Pages/Shared/Header/Header";
+import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
+import Inventory from "./Pages/Inventory/Inventory";
 
 function App() {
   return (
@@ -12,6 +14,14 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Banner />}></Route>
+        <Route
+          path="/inventory/:id"
+          element={
+            <RequireAuth>
+              <Inventory />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>

@@ -1,11 +1,17 @@
 import React from "react";
 import "./Header.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
-
 import Login from "../../Login/Login/Login";
 import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const Header = () => {
+  const [user] = useAuthState(auth);
+  const handleSignout = () => {
+    signOut(auth);
+  };
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -28,16 +34,16 @@ const Header = () => {
               <Nav.Link className="link nav-link" href="#link">
                 Blog
               </Nav.Link>
-              {/* {user ? (
-              <Link to="" onClick={handleSignout}>
-                Signout
-              </Link>
-            ) : (
-              <Link to="/register">Register</Link>
-            )} */}
-              <Link className="link nav-link" to="/register">
-                Register
-              </Link>
+              {user ? (
+                <Link to="" onClick={handleSignout} className="link nav-link">
+                  Signout
+                </Link>
+              ) : (
+                <Link to="/register" className="link nav-link">
+                  Register
+                </Link>
+              )}
+
               {/* <Link to="/registervolunteer">Register Volunteer</Link> */}
               <Nav.Link href="#link">Admin</Nav.Link>
             </Nav>

@@ -1,0 +1,26 @@
+.media-info li {
+  list-style: none;
+  font-size: 1em;
+}
+.media-info li:not(:last-child) {
+  margin-bottom: 30px;
+}
+.media-info li:nth-child(4) {
+  margin-bottom: 50px;
+}
+.media-info li:nth-child(1),
+.media-info li:nth-child(4) {
+  padding-left: 100px;
+}
+.media-info li:nth-child(2),
+.media-info li:nth-child(3) {
+  padding-left: 40px;
+  width: 95%;
+}
+.sec-03 {
+  margin-bottom: 100px;
+}
+.accordion {
+  border-radius: 5px;
+  box-shadow: 0px 30px 40px -20px hsl(229, 6%, 66%);
+}

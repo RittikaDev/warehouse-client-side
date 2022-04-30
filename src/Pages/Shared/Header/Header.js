@@ -3,6 +3,7 @@ import "./Header.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import Banner from "../../Banner/Banner";
 import WhyUs from "../../WhyUs/WhyUs";
+import Queries from "../../Queries/Queries";
 
 const Header = () => {
   return (
@@ -43,6 +44,7 @@ const Header = () => {
       </Navbar>
       <Banner></Banner>
       <WhyUs></WhyUs>
+      <Queries />
     </>
   );
 };

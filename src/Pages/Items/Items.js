@@ -6,6 +6,8 @@ const Items = () => {
   const [items, setItems] = useState([]);
   const [firstSix, setFirstSix] = useState([]);
 
+  // fetch("https://intense-castle-01868.herokuapp.com/items")
+
   useEffect(() => {
     fetch("http://localhost:5000/items")
       .then((res) => res.json())
@@ -29,7 +31,9 @@ const Items = () => {
               <div>Quantity: {item.quantity}</div>
               <div>Quantity: {item._id}</div>
             </p>
-            <Link to={"/inventory/" + item._id}>More Info</Link>
+            <Link to={"/inventory/" + item._id} item={item}>
+              More Info
+            </Link>
           </figcaption>
         </figure>
       ))}

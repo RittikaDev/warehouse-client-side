@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 
 const Register = () => {
@@ -16,9 +19,21 @@ const Register = () => {
     password: "",
     general: "",
   });
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   // create user with email and password from react firebase hook
   const [createUserWithEmailAndPassword, user] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [from, navigate, user]);
+  // Google sign in
+  const [signInWithGoogle, googleUser, loading2, googleError] =
+    useSignInWithGoogle(auth);
 
   // For email
   const handleEmail = (e) => {
@@ -47,17 +62,17 @@ const Register = () => {
   };
   console.log(userInfo);
   return (
-    <div class="page">
-      <form class="container login-form" onSubmit={handleRegister}>
-        <div class="left">
-          <div class="login">Register</div>
-          <div class="eula">
+    <div className="page">
+      <form className="container login-form" onSubmit={handleRegister}>
+        <div className="left">
+          <div className="login">Register</div>
+          <div className="eula">
             By logging in you agree to the ridiculously long terms that you
             didn't bother to read
           </div>
         </div>
-        <div class="right">
-          <div class="form">
+        <div className="right">
+          <div className="form">
             <label for="email">Email</label>
             <span>
               <input
@@ -87,7 +102,11 @@ const Register = () => {
               <h3 className="mt-2 px-2">or</h3>
               <div style={{ height: "1.5px" }} className="bg-danger w-25"></div>
             </div>
-            <div className="text-center logo">
+            <div
+              className="text-center logo"
+              onClick={() => signInWithGoogle()}
+            >
+              Google
               <FontAwesomeIcon
                 icon={faGoogle}
                 className="icon"

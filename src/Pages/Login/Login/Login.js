@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 
 const Login = () => {
@@ -14,12 +17,16 @@ const Login = () => {
     password: "",
     general: "",
   });
+  const emailRef = useRef("");
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   // Login with react firebase hook
   const [signInWithEmail, user, loading, hookError] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, error] =
+    useSendPasswordResetEmail(auth);
 
   // Navigate to
   useEffect(() => {
@@ -43,21 +50,31 @@ const Login = () => {
     signInWithEmail(userInfo.email, userInfo.password);
   };
 
+  //   Reset Password
+  const resetPassword = async () => {
+    const email = emailRef.current.value; //basically gives whatever was written in the email input
+    console.log(email);
+    await sendPasswordResetEmail(email);
+    alert("Sent email");
+  };
+
   return (
-    <div class="page">
-      <form class="container login-form" onSubmit={handleLogin}>
-        <div class="left">
-          <div class="login">Login</div>
-          <div class="eula">
+    <div className="page">
+      <form className="container login-form" onSubmit={handleLogin}>
+        <div className="left">
+          <div className="login">Login</div>
+          <div className="eula">
             By logging in you agree to the ridiculously long terms that you
             didn't bother to read
           </div>
         </div>
-        <div class="right">
-          <div class="form">
+        <div className="right">
+          <div className="form">
             <label for="email">Email</label>
             <span>
               <input
+                name="email"
+                ref={emailRef}
                 placeholder="Email"
                 type="email"
                 onChange={handleEmail}
@@ -72,6 +89,19 @@ const Login = () => {
               id="password"
             />
             <input type="submit" id="submit" value="Submit" />
+            <p>
+              Don't have an account?
+              <Link to="/register" className="btn">
+                {" "}
+                Signup Here
+              </Link>
+            </p>
+            <p>
+              Fogot Password?{" "}
+              <button className="btn" onClick={resetPassword}>
+                Reset Password
+              </button>{" "}
+            </p>
           </div>
         </div>
       </form>

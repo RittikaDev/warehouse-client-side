@@ -9,8 +9,8 @@ import Queries from "../Queries/Queries";
 const Banner = () => {
   return (
     <>
-      <main class="main mb-5 container">
-        <section class="home section p-3" id="home">
+      <main className="main mb-5 container">
+        <section className="home section p-3" id="home">
           <div className="home__container container grid row">
             <div className="col-lg-7 me-4">
               <Fade top>

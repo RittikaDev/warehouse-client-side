@@ -28,14 +28,8 @@ const Header = () => {
               <Nav.Link className="link nav-link" href="/">
                 Home
               </Nav.Link>
-              <Nav.Link className="link nav-link" href="#link">
-                Donation
-              </Nav.Link>
-              <Nav.Link className="link nav-link" href="/events">
-                Events
-              </Nav.Link>
-              <Nav.Link className="link nav-link" href="#link">
-                Blog
+              <Nav.Link className="link nav-link" href="/blogs">
+                Blogs
               </Nav.Link>
               {user ? (
                 <>
@@ -59,7 +53,6 @@ const Header = () => {
               )}
 
               {/* <Link to="/registervolunteer">Register Volunteer</Link> */}
-              <Nav.Link href="#link">Admin</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

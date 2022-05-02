@@ -1,0 +1,5 @@
+.notfound {
+  box-shadow: 10px 30px 40px 10px hsl(229, 6%, 66%);
+  padding: 30px;
+  border-radius: 10px;
+}

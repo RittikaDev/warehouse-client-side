@@ -7,11 +7,25 @@ import { Link } from "react-router-dom";
 
 const ManageInventories = () => {
   const [items, setItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(7);
+
+  //   pagination
   useEffect(() => {
-    fetch("http://localhost:5000/items")
+    fetch("http://localhost:5000/itemcount")
+      .then((res) => res.json())
+      .then((data) => {
+        const count = data.count;
+        const pages = Math.ceil(count / 7);
+        setPageCount(pages);
+      });
+  }, []);
+  useEffect(() => {
+    fetch(`http://localhost:5000/items?page=${page}&size=${size}`)
       .then((res) => res.json())
       .then((data) => setItems(data));
-  }, []);
+  }, [page, size]);
   const itemDelete = (id) => {
     const proceed = window.confirm("Are you sure you want to delete?");
     if (proceed) {
@@ -65,6 +79,18 @@ const ManageInventories = () => {
             ))}
           </tbody>
         </Table>
+        <div>
+          {[...Array(pageCount).keys()].map((number) => (
+            <button
+              className={
+                page === number ? "btn btn-primary" : "btn btn-outline-primary"
+              }
+              onClick={() => setPage(number)}
+            >
+              {number + 1}
+            </button>
+          ))}
+        </div>
         <Link to="/additem" className="btn btn-primary my-5 px-5">
           <FontAwesomeIcon icon={faPlus} className="plus"></FontAwesomeIcon>
           Add New Item

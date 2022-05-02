@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Inventory.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useItems from "../../hooks/useItems";
 
 const Inventory = () => {
@@ -121,6 +121,14 @@ const Inventory = () => {
                 <button className="btn btn-primary ms-3">Add</button>
               </div>
             </form>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <Link to="/manageinventory" className="btn btn-primary ">
+                Manage Inventories
+              </Link>
+            </div>
           </div>
         </div>
       </div>

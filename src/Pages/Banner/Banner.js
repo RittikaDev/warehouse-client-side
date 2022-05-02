@@ -72,7 +72,6 @@ const Banner = () => {
       <Items />
       <WhyUs></WhyUs>
       <Queries />
-      {/* <Login /> */}
     </>
   );
 };

@@ -16,28 +16,37 @@ const Items = () => {
   let a = items.slice(0, 6);
   console.log(a._id);
   return (
-    <div className="container items-container">
-      {a.map((item) => (
-        <figure className="image-block">
-          <img
-            src={item.image}
-            alt=""
-            style={{ width: "90%", height: "80%", marginTop: "-130px" }}
-          />
-          <figcaption>
-            <h3>{item.title}</h3>
-            <p>
-              <div>Price: {item.price}</div>
-              <div>Quantity: {item.quantity}</div>
-              <div>Quantity: {item._id}</div>
-            </p>
-            <Link to={"/inventory/" + item._id} item={item}>
-              More Info
-            </Link>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
+    <>
+      <div className="container items-container">
+        {a.map((item) => (
+          <figure className="image-block">
+            <img
+              src={item.image}
+              alt=""
+              style={{ width: "90%", height: "80%", marginTop: "-130px" }}
+            />
+            <figcaption>
+              <h3>{item.title}</h3>
+              <p>
+                <div>Price: {item.price}</div>
+                <div>Quantity: {item.quantity}</div>
+                <div>Quantity: {item._id}</div>
+              </p>
+              <Link to={"/inventory/" + item._id} item={item}>
+                More Info
+              </Link>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <div className="row my-5 ">
+        <div className="col-lg-12 text-center">
+          <Link to="/manageinventory" className="btn btn-primary ">
+            Manage Inventories
+          </Link>
+        </div>
+      </div>
+    </>
   );
 };
 

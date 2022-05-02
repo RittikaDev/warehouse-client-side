@@ -7,6 +7,7 @@ import Register from "./Pages/Login/Register/Register";
 import Header from "./Pages/Shared/Header/Header";
 import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
 import Inventory from "./Pages/Inventory/Inventory";
+import ManageInventories from "./Pages/ManageInventories/ManageInventories";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        <Route path="/manageinventory" element={<ManageInventories />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>

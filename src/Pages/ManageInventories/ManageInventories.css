@@ -1,3 +1,8 @@
+.manage-inventory-table {
+  box-shadow: 0px 30px 40px -20px hsl(229, 6%, 66%);
+  padding: 30px;
+  border-radius: 10px;
+}
 path {
   fill: black;
 }
@@ -6,4 +11,8 @@ path {
 }
 .table-data {
   width: 140px;
+}
+.plus {
+  width: 240px;
+  margin-top: 5px;
 }

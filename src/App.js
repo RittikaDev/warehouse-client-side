@@ -8,6 +8,7 @@ import Header from "./Pages/Shared/Header/Header";
 import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
 import Inventory from "./Pages/Inventory/Inventory";
 import ManageInventories from "./Pages/ManageInventories/ManageInventories";
+import AddItem from "./Pages/AddItem/AddItem";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           }
         ></Route>
         <Route path="/manageinventory" element={<ManageInventories />} />
+        <Route path="/additem" element={<AddItem />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>

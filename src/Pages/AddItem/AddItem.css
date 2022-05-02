@@ -1,0 +1,11 @@
+.add-item {
+  box-shadow: 10px 30px 40px 10px hsl(229, 6%, 66%);
+  padding: 30px;
+  border-radius: 10px;
+}
+input {
+  border-radius: 5px;
+  padding: 20px;
+  color: black;
+  border: 1px solid rgb(103, 102, 102);
+}

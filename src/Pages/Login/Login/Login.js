@@ -6,6 +6,7 @@ import {
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import axios from "axios";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({
@@ -31,7 +32,7 @@ const Login = () => {
   // Navigate to
   useEffect(() => {
     if (user) {
-      navigate(from, { replace: true });
+      // navigate(from, { replace: true });
     }
   }, [from, navigate, user]);
   // For Email
@@ -44,16 +45,21 @@ const Login = () => {
     setUserInfo({ ...userInfo, password: e.target.value });
     setErrors({ ...errors, password: "" });
   };
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    const email = emailRef.current.value;
     console.log(userInfo);
-    signInWithEmail(userInfo.email, userInfo.password);
+    await signInWithEmail(userInfo.email, userInfo.password);
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    console.log(data);
+    localStorage.setItem("token", data.accessToken);
+    navigate(from, { replace: true });
   };
 
   //   Reset Password
   const resetPassword = async () => {
     const email = emailRef.current.value; //basically gives whatever was written in the email input
-    console.log(email);
+    // console.log(email);
     await sendPasswordResetEmail(email);
     alert("Sent email");
   };

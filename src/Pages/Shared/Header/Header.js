@@ -38,9 +38,20 @@ const Header = () => {
                 Blog
               </Nav.Link>
               {user ? (
-                <Link to="" onClick={handleSignout} className="link nav-link">
-                  Signout
-                </Link>
+                <>
+                  <Link to="" className="link nav-link">
+                    Manage Items
+                  </Link>
+                  <Link to="" className="link nav-link">
+                    Add Items
+                  </Link>
+                  <Link to="/myitems" className="link nav-link">
+                    My Items
+                  </Link>
+                  <Link to="" onClick={handleSignout} className="link nav-link">
+                    Signout
+                  </Link>
+                </>
               ) : (
                 <Link to="/register" className="link nav-link">
                   Register

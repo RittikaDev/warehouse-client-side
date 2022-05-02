@@ -46,7 +46,22 @@
   padding: 20px;
   border-radius: 10px;
 }
-
+.inventory-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inventory-form input {
+  box-shadow: 0px 30px 40px -20px hsl(229, 6%, 66%);
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: black;
+}
+.inventory-form button {
+  padding-left: 80px;
+  padding-right: 80px;
+}
 @media (max-width: 768px) {
   .inventory-content .inventory-text {
     margin-right: 0px;

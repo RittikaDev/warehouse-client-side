@@ -28,53 +28,72 @@ const Inventory = () => {
   console.log(item.quantity);
 
   return (
-    <div className="sec-01">
-      <div className="container">
-        <div className="inventory-content row">
-          <div className="inventory-image col-lg-4">
-            <img src={item.image} alt="" />
-          </div>
-          <div className="col-lg-1"></div>
+    <>
+      <div className="sec-01">
+        <div className="container">
+          <div className="inventory-content row mb-5">
+            <div className="inventory-image col-lg-4">
+              <img src={item.image} alt="" />
+            </div>
+            <div className="col-lg-1"></div>
 
-          <div className="inventory-text col-lg-7">
-            <div className="inventory-textbox mb-1">
-              <h4 className="text-center">Product Name : {item.title}</h4>
-              <p className="text-center">
-                <strong>Product ID :</strong> {item._id}
-              </p>
+            <div className="inventory-text col-lg-7">
+              <div className="inventory-textbox mb-1">
+                <h4 className="text-center">Product Name : {item.title}</h4>
+                <p className="text-center">
+                  <strong>Product ID :</strong> {item._id}
+                </p>
+              </div>
+              <div className="row">
+                <div className="col-lg-6">
+                  <p className="inventory-textbox">
+                    <strong>Price :</strong> {item.price}
+                  </p>
+                </div>
+                <div className="col-lg-6">
+                  <p className="inventory-textbox">
+                    <strong>Quantity :</strong> {item.quantity}
+                  </p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-lg-8">
+                  <p className="inventory-textbox">
+                    <strong> Description : </strong> {item.description}
+                  </p>
+                </div>
+                <div className="col-lg-4">
+                  <p className="inventory-textbox">
+                    <strong>Supplier : </strong>
+                    {item.supplier}
+                  </p>
+                </div>
+              </div>
+              <button onClick={() => quantityDecrease(item.quantity)}>
+                Delivered
+              </button>
             </div>
-            <div className="row">
-              <div className="col-lg-6">
-                <p className="inventory-textbox">
-                  <strong>Price :</strong> {item.price}
-                </p>
+          </div>
+
+          <div className="row my-5">
+            <h3 className="text-center my-5">Restock Items</h3>
+            <form className="inventory-form">
+              <div className="col-lg-9">
+                {/* <label htmlFor="">Restock</label> */}
+                <input
+                  type="number"
+                  placeholder="Restock Items"
+                  className="px-5"
+                />
               </div>
-              <div className="col-lg-6">
-                <p className="inventory-textbox">
-                  <strong>Quantity :</strong> {item.quantity}
-                </p>
+              <div className="col-lg-3">
+                <button className="btn btn-primary ms-3">Add</button>
               </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-8">
-                <p className="inventory-textbox">
-                  <strong> Description : </strong> {item.description}
-                </p>
-              </div>
-              <div className="col-lg-4">
-                <p className="inventory-textbox">
-                  <strong>Supplier : </strong>
-                  {item.supplier}
-                </p>
-              </div>
-            </div>
-            <button onClick={() => quantityDecrease(item.quantity)}>
-              Delivered
-            </button>
+            </form>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

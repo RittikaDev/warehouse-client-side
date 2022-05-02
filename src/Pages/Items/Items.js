@@ -4,7 +4,6 @@ import "./Items.css";
 
 const Items = () => {
   const [items, setItems] = useState([]);
-  const [firstSix, setFirstSix] = useState([]);
 
   // fetch("https://intense-castle-01868.herokuapp.com/items")
 

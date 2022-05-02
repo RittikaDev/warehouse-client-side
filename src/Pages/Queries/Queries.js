@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import { Accordion } from "react-bootstrap";
 import banner from "../../images/banner.jpg";
-import "aos/dist/aos.css";
+// import "aos/dist/aos.css";
 
 const Queries = () => {
   return (

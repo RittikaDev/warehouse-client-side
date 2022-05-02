@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { signOut } from "firebase/auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -18,6 +20,7 @@ const Header = () => {
         <Container>
           <Navbar.Brand href="#home">
             <img style={{ width: "120px", height: "50px" }} alt="" />
+            <FontAwesomeIcon icon={faCoffee} className="icon"></FontAwesomeIcon>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Inventory.css";
 import { useParams } from "react-router-dom";
 import useItems from "../../hooks/useItems";
@@ -6,6 +6,7 @@ import useItems from "../../hooks/useItems";
 const Inventory = () => {
   const { id } = useParams();
   const [item, setItem] = useItems(id);
+  const [input, setInput] = useState(0);
   const quantityDecrease = (newQuantity) => {
     let quantity = parseInt(newQuantity) - 1;
     console.log(quantity);
@@ -25,7 +26,36 @@ const Inventory = () => {
         console.log("success", data);
       });
   };
-  console.log(item.quantity);
+  // console.log(item.quantity);
+
+  //Input value to take restock items
+  const takeInput = (e) => {
+    let inputValue = parseInt(e.target.value);
+    setInput(inputValue);
+  };
+  // Restock Quantity
+  const addQuantity = (e) => {
+    e.preventDefault();
+    if (input > 0) {
+      let newQuantity = input + item.quantity;
+      setItem({ ...item, quantity: newQuantity });
+      const updateQuantity = { quantity: newQuantity };
+      const url = `http://localhost:5000/inventory/${id}`;
+      fetch(url, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateQuantity),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("success", data);
+        });
+    } else {
+      alert("Please enter a valid number");
+    }
+  };
 
   return (
     <>
@@ -77,13 +107,14 @@ const Inventory = () => {
 
           <div className="row my-5">
             <h3 className="text-center my-5">Restock Items</h3>
-            <form className="inventory-form">
+            <form className="inventory-form" onSubmit={addQuantity}>
               <div className="col-lg-9">
                 {/* <label htmlFor="">Restock</label> */}
                 <input
                   type="number"
                   placeholder="Restock Items"
                   className="px-5"
+                  onBlur={takeInput}
                 />
               </div>
               <div className="col-lg-3">

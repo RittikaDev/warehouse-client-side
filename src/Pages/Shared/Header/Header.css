@@ -1,3 +1,6 @@
+body {
+  overflow-x: hidden;
+}
 .link:before {
   content: "";
   position: absolute;

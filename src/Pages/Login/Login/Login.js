@@ -7,6 +7,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({
@@ -37,13 +38,31 @@ const Login = () => {
   }, [from, navigate, user]);
   // For Email
   const handleEmail = (e) => {
-    setUserInfo({ ...userInfo, email: e.target.value });
-    setErrors({ ...errors, email: "" });
+    const emailRegexValidate = /\S+@\S+\.\S+/;
+    const validatedEmail = emailRegexValidate.test(e.target.value);
+    if (validatedEmail) {
+      setUserInfo({ ...userInfo, email: e.target.value });
+      setErrors({ ...errors, email: "" });
+    } else {
+      setErrors({ ...errors, email: "Invalid Email" });
+      setUserInfo({ ...userInfo, email: "" });
+    }
   };
   // For Password
   const handlePassword = (e) => {
-    setUserInfo({ ...userInfo, password: e.target.value });
-    setErrors({ ...errors, password: "" });
+    const passwordRegexValidate = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; //Minimum eight characters, at least one letter and one number
+    const validatedPassword = passwordRegexValidate.test(e.target.value);
+    if (validatedPassword) {
+      setUserInfo({ ...userInfo, password: e.target.value });
+      setErrors({ ...errors, password: "" });
+    } else {
+      setErrors({
+        ...errors,
+        password:
+          "Minimum eight characters, at least one letter and one number",
+      });
+      setUserInfo({ ...userInfo, password: "" });
+    }
   };
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -58,14 +77,14 @@ const Login = () => {
 
   //   Reset Password
   const resetPassword = async () => {
-    const email = emailRef.current.value; //basically gives whatever was written in the email input
+    const email = emailRef.current.value;
     // console.log(email);
     await sendPasswordResetEmail(email);
     alert("Sent email");
   };
 
   return (
-    <div className="page">
+    <div className="page mb-5">
       <form className="container login-form" onSubmit={handleLogin}>
         <div className="left">
           <div className="login">Login</div>
@@ -87,6 +106,14 @@ const Login = () => {
                 id="email"
               />
             </span>
+            {errors?.email && (
+              <p
+                className="text-danger"
+                style={{ fontSize: "12px", fontWeight: "bolder" }}
+              >
+                {errors.email}
+              </p>
+            )}
             <label for="password">Password</label>
             <input
               placeholder="Password"
@@ -94,17 +121,28 @@ const Login = () => {
               onChange={handlePassword}
               id="password"
             />
-            <input type="submit" id="submit" value="Submit" />
-            <p>
+            {errors?.password && (
+              <p
+                className="text-danger"
+                style={{ fontSize: "12px", fontWeight: "bolder" }}
+              >
+                {errors.password}
+              </p>
+            )}
+            <button class="btn text-center">
+              <input type="submit" id="submit" value="Submit" />
+            </button>
+
+            <p className="text-center">
               Don't have an account?
-              <Link to="/register" className="btn">
+              <Link to="/register" className="btn ms-3">
                 {" "}
                 Signup Here
               </Link>
             </p>
-            <p>
+            <p className="text-center">
               Fogot Password?{" "}
-              <button className="btn" onClick={resetPassword}>
+              <button className="btn ms-3" onClick={resetPassword}>
                 Reset Password
               </button>{" "}
             </p>

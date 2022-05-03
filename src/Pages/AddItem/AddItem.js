@@ -48,33 +48,68 @@ const AddItem = () => {
       <form className="col-lg-12 container add-item" onSubmit={handleSubmit}>
         <div className="row mb-3">
           <div className="col-lg-12 ">
-            <input type="text" placeholder="Email" value={user?.email} />
+            <input
+              className="input"
+              type="text"
+              placeholder="Email"
+              value={user?.email}
+            />
           </div>
         </div>
         <div className="row mb-3">
           <div className="col-lg-12 ">
-            <input name="title" type="text" placeholder="Title" />
+            <input
+              className="input"
+              name="title"
+              type="text"
+              placeholder="Title"
+            />
           </div>
         </div>
         <div className="row mb-3">
           <div className="col-lg-4 ">
-            <input name="price" type="text" placeholder="Price" />
+            <input
+              className="input"
+              name="price"
+              type="text"
+              placeholder="Price"
+            />
           </div>
           <div className="col-lg-4 ">
-            <input name="quantity" type="text" placeholder="Quantity" />
+            <input
+              className="input"
+              name="quantity"
+              type="text"
+              placeholder="Quantity"
+            />
           </div>
           <div className="col-lg-4 ">
-            <input name="supplier" type="text" placeholder="Supplier" />
+            <input
+              className="input"
+              name="supplier"
+              type="text"
+              placeholder="Supplier"
+            />
           </div>
         </div>
         <div className="row mb-3">
           <div className="col-lg-12 ">
-            <input name="description" type="text" placeholder="Description" />
+            <input
+              className="input"
+              name="description"
+              type="text"
+              placeholder="Description"
+            />
           </div>
         </div>
         <div className="row mb-3">
           <div className="col-lg-12 ">
-            <input name="image" type="text" placeholder="Image URL" />
+            <input
+              className="input"
+              name="image"
+              type="text"
+              placeholder="Image URL"
+            />
           </div>
         </div>
         <div className="row">
@@ -93,7 +128,7 @@ const AddItem = () => {
     //   >
     //     <div className="row mb-3">
     //       <div className="col-lg-12 ">
-    //         <input
+    //         <input className="input"
     //           type="text"
     //           placeholder="Title"
     //
@@ -102,21 +137,21 @@ const AddItem = () => {
     //     </div>
     //     <div className="row mb-3">
     //       <div className="col-lg-4 ">
-    //         <input
+    //         <input className="input"
     //           type="text"
     //           placeholder="Price"
     //
     //         />
     //       </div>
     //       <div className="col-lg-4 ">
-    //         <input
+    //         <input className="input"
     //           type="text"
     //           placeholder="Quantity"
     //           })}
     //         />
     //       </div>
     //       <div className="col-lg-4 ">
-    //         <input
+    //         <input className="input"
     //           type="text"
     //           placeholder="Supplier"
     //           })}
@@ -125,7 +160,7 @@ const AddItem = () => {
     //     </div>
     //     <div className="row mb-3">
     //       <div className="col-lg-12 ">
-    //         <input
+    //         <input className="input"
     //           type="text"
     //           placeholder="Description"
     //           true })}
@@ -134,7 +169,7 @@ const AddItem = () => {
     //     </div>
     //     <div className="row mb-3">
     //       <div className="col-lg-12 ">
-    //         <input
+    //         <input className="input"
     //           type="text"
     //           placeholder="Image URL"
     //

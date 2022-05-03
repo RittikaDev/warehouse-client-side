@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { ToastContainer } from "react-toastify";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Banner from "./Pages/Banner/Banner";
@@ -12,6 +13,7 @@ import AddItem from "./Pages/AddItem/AddItem";
 import MyItems from "./Pages/MyItems/MyItems";
 import Blog from "./Pages/Blog/Blog";
 import NotFound from "./Pages/NotFound/NotFound";
+import Footer from "./Pages/Shared/Footer/Footer";
 
 function App() {
   return (
@@ -42,6 +44,19 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
+      <ToastContainer
+        position="top-center"
+        autoClose={7000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }

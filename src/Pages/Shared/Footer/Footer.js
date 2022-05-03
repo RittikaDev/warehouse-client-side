@@ -15,7 +15,7 @@ const Footer = () => {
         <h3>Lorem ipsum</h3>
         <ul className="socials">
           <Nav.Link href="#" className="icon-footer facebookIcon">
-            <span class="tooltip">Facebook</span>
+            <span className="tooltip">Facebook</span>
             <span className="icon-margin">
               <FontAwesomeIcon className="facebook" icon={faFacebookF}>
                 Facebook
@@ -23,7 +23,7 @@ const Footer = () => {
             </span>
           </Nav.Link>
           <Nav.Link href="#" className="icon-footer instagramIcon">
-            <span class="tooltip">Instagram</span>
+            <span className="tooltip">Instagram</span>
             <span className="icon-margin ">
               <FontAwesomeIcon
                 className="facebook "
@@ -32,7 +32,7 @@ const Footer = () => {
             </span>
           </Nav.Link>
           <Nav.Link href="#" className=" icon-footer twitterIcon">
-            <span class="tooltip">Twitter</span>
+            <span className="tooltip">Twitter</span>
             <span className="icon-margin">
               <FontAwesomeIcon
                 className="facebook"

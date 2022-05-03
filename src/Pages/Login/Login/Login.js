@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 import {
   useSendPasswordResetEmail,
@@ -80,7 +81,7 @@ const Login = () => {
     const email = emailRef.current.value;
     // console.log(email);
     await sendPasswordResetEmail(email);
-    alert("Sent email");
+    toast("Sent email");
   };
 
   return (
@@ -129,7 +130,7 @@ const Login = () => {
                 {errors.password}
               </p>
             )}
-            <button class="btn text-center">
+            <button className="btn text-center">
               <input type="submit" id="submit" value="Submit" />
             </button>
 

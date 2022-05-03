@@ -27,11 +27,24 @@ const Items = () => {
             <figcaption>
               <h3>{item.title}</h3>
               <p>
-                <div>Price: {item.price}</div>
-                <div>Quantity: {item.quantity}</div>
-                <div>Quantity: {item._id}</div>
+                <div>
+                  <span className="text-item">Product ID : </span>
+                  {item._id}
+                </div>
+                <div>
+                  <span className="text-item">Price : </span>
+                  {item.price}
+                </div>
+                <div>
+                  <span className="text-item">Quantity : </span>
+                  {item.quantity}
+                </div>
               </p>
-              <Link to={"/inventory/" + item._id} item={item}>
+              <Link
+                to={"/inventory/" + item._id}
+                className="btn mt-0"
+                item={item}
+              >
                 More Info
               </Link>
             </figcaption>
@@ -40,7 +53,7 @@ const Items = () => {
       </div>
       <div className="row my-5 ">
         <div className="col-lg-12 text-center">
-          <Link to="/manageinventory" className="btn btn-primary ">
+          <Link to="/manageinventory" className="btn1">
             Manage Inventories
           </Link>
         </div>

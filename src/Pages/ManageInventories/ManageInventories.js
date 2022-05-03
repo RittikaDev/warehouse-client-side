@@ -41,8 +41,7 @@ const ManageInventories = () => {
     }
   };
   return (
-    <div className="manage-inventory container">
-      <h1>Manage Inventories</h1>
+    <div className="manage-inventory container my-4">
       <div className="manage-inventory-table">
         <Table striped bordered hover>
           <thead>
@@ -79,11 +78,13 @@ const ManageInventories = () => {
             ))}
           </tbody>
         </Table>
-        <div>
+        <div className="mb-5 d-flex justify-content-end me-1">
           {[...Array(pageCount).keys()].map((number) => (
             <button
               className={
-                page === number ? "btn btn-primary" : "btn btn-outline-primary"
+                page === number
+                  ? "btn btn-primary me-2"
+                  : "btn btn-outline-primary me-2"
               }
               onClick={() => setPage(number)}
             >
@@ -91,10 +92,14 @@ const ManageInventories = () => {
             </button>
           ))}
         </div>
-        <Link to="/additem" className="btn btn-primary my-5 px-5">
-          <FontAwesomeIcon icon={faPlus} className="plus"></FontAwesomeIcon>
-          Add New Item
-        </Link>
+        <div className="row my-5 ">
+          <div className="col-lg-12 text-center">
+            <Link to="/additem" className="btn1 my-5 px-5">
+              <FontAwesomeIcon icon={faPlus} className="plus"></FontAwesomeIcon>
+              Add New Item
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

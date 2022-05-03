@@ -44,7 +44,7 @@ const AddItem = () => {
   };
   return (
     <div className=" container">
-      <h2>Add New Item</h2>
+      {/* <h2>Add New Item</h2> */}
       <form className="col-lg-12 container add-item" onSubmit={handleSubmit}>
         <div className="row mb-3">
           <div className="col-lg-12 ">
@@ -113,76 +113,12 @@ const AddItem = () => {
           </div>
         </div>
         <div className="row">
-          <button className="btn btn-primary w-25 mx-auto my-4" type="submit">
+          <button className="btn1 w-25 mx-auto my-4" type="submit">
             Add New Item
           </button>
         </div>
       </form>
     </div>
-
-    // <div className=" container">
-    //   <h2>Add New Item</h2>
-    //   <form
-    //     className="col-lg-12 container add-item"
-    //     onSubmit={handleSubmit(onSubmit)}
-    //   >
-    //     <div className="row mb-3">
-    //       <div className="col-lg-12 ">
-    //         <input className="input"
-    //           type="text"
-    //           placeholder="Title"
-    //
-    //         />
-    //       </div>
-    //     </div>
-    //     <div className="row mb-3">
-    //       <div className="col-lg-4 ">
-    //         <input className="input"
-    //           type="text"
-    //           placeholder="Price"
-    //
-    //         />
-    //       </div>
-    //       <div className="col-lg-4 ">
-    //         <input className="input"
-    //           type="text"
-    //           placeholder="Quantity"
-    //           })}
-    //         />
-    //       </div>
-    //       <div className="col-lg-4 ">
-    //         <input className="input"
-    //           type="text"
-    //           placeholder="Supplier"
-    //           })}
-    //         />
-    //       </div>
-    //     </div>
-    //     <div className="row mb-3">
-    //       <div className="col-lg-12 ">
-    //         <input className="input"
-    //           type="text"
-    //           placeholder="Description"
-    //           true })}
-    //         />
-    //       </div>
-    //     </div>
-    //     <div className="row mb-3">
-    //       <div className="col-lg-12 ">
-    //         <input className="input"
-    //           type="text"
-    //           placeholder="Image URL"
-    //
-    //         />
-    //       </div>
-    //     </div>
-    //     <div className="row">
-    //       <button className="btn btn-primary w-25 mx-auto my-4" type="submit">
-    //         Add New Item
-    //       </button>
-    //     </div>
-    //   </form>
-    // </div>
   );
 };
 

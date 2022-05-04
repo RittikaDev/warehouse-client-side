@@ -13,7 +13,7 @@ const MyItems = () => {
   const [user] = useAuthState(auth);
   const [myItems, setMyItems] = useState();
   const navigate = useNavigate();
-  console.log(user?.email);
+  console.log(user?.reloadUserInfo.providerUserInfo[0].providerId);
   useEffect(() => {
     const getItems = async () => {
       const email = user?.email;
@@ -28,6 +28,9 @@ const MyItems = () => {
         setMyItems(data);
       } catch (error) {
         console.log(error);
+        // if (
+        //   user?.reloadUserInfo?.providerUserInfo[0]?.providerId !== "google.com"
+        // )
         if (error.response.status === 401 || error.response.status === 403) {
           signOut(auth);
           navigate("/login");
@@ -35,7 +38,7 @@ const MyItems = () => {
       }
     };
     getItems();
-  }, []);
+  }, [navigate, user?.email, user?.reloadUserInfo?.providerUserInfo]);
   // console.log(myItems?.length);
   const itemDelete = (id) => {
     Swal.fire({

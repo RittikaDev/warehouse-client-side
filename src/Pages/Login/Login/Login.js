@@ -59,8 +59,7 @@ const Login = () => {
     } else {
       setErrors({
         ...errors,
-        password:
-          "Minimum eight characters, at least one letter and one number",
+        password: "Password Not Correct",
       });
       setUserInfo({ ...userInfo, password: "" });
     }

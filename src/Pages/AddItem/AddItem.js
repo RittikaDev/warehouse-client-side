@@ -26,6 +26,7 @@ const AddItem = () => {
     event.preventDefault();
     const addItem = {
       email: event.target.email.value,
+      // email: user?.email,
       title: event.target.title.value,
       price: event.target.price.value,
       quantity: event.target.quantity.value,

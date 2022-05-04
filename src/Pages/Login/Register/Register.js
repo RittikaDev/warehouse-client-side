@@ -2,13 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useCreateUserWithEmailAndPassword,
-  useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Spinner } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
@@ -21,6 +21,7 @@ const Register = () => {
     password: "",
     general: "",
   });
+
   const emailRef = useRef("");
 
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const Register = () => {
   if (user || googleUser) {
     navigate(from, { replace: true });
     console.log("redirect");
-    console.log(googleUser);
+    console.log(googleUser?.user?.email);
   }
   // For email
   const handleEmail = (e) => {
@@ -82,13 +83,8 @@ const Register = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-    // const { data } = await axios.post("http://localhost:5000/login", { email });
-    // console.log(data);
-    // localStorage.setItem("token", data.accessToken);
-    // navigate(from, { replace: true });
-    // navigate(from, { replace: true });
+    //Going to MyItems will redirect to login page.
   };
-  console.log(googleUser);
   useEffect(() => {
     const error = googleError;
     if (error) {
@@ -163,7 +159,22 @@ const Register = () => {
               placeholder="Confirm Password"
               onBlur={handleConfirmPassword}
             />
-
+            {loading2 ? (
+              <div className="text-center w-100">
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              </div>
+            ) : (
+              ""
+            )}
+            {loading2 ? (
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            ) : (
+              ""
+            )}
             <button className="btn">
               <input type="submit" id="submit" value="Submit" />
             </button>

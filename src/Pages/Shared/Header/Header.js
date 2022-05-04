@@ -8,6 +8,7 @@ import auth from "../../../firebase.init";
 import { signOut } from "firebase/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import CustomLink from "../../CustomLink/CustomLink";
 
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -18,40 +19,44 @@ const Header = () => {
     <>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#home" className="navbar-brand">
+          <Navbar.Brand to="#home" className="navbar-brand">
             <h1>Door2Door</h1>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link className="link nav-link" href="/">
+              <CustomLink className="link nav-link" to="/">
                 Home
-              </Nav.Link>
-              <Nav.Link className="link nav-link" href="/blogs">
+              </CustomLink>
+              <CustomLink className="link nav-link" to="/blogs">
                 Blogs
-              </Nav.Link>
+              </CustomLink>
               {user ? (
                 <>
-                  <Link to="/manageinventory" className="link nav-link">
+                  <CustomLink to="/manageinventory" className="link nav-link">
                     Manage Items
-                  </Link>
-                  <Link to="/additem" className="link nav-link">
+                  </CustomLink>
+                  <CustomLink to="/additem" className="link nav-link">
                     Add Items
-                  </Link>
-                  <Link to="/myitems" className="link nav-link">
+                  </CustomLink>
+                  <CustomLink to="/myitems" className="link nav-link">
                     My Items
-                  </Link>
-                  <Link to="" onClick={handleSignout} className="link nav-link">
+                  </CustomLink>
+                  <CustomLink
+                    to=""
+                    onClick={handleSignout}
+                    className="link nav-link"
+                  >
                     Signout
-                  </Link>
+                  </CustomLink>
                 </>
               ) : (
-                <Link to="/register" className="link nav-link">
+                <CustomLink to="/register" className="link nav-link">
                   Register
-                </Link>
+                </CustomLink>
               )}
 
-              {/* <Link to="/registervolunteer">Register Volunteer</Link> */}
+              {/* <CustomLink to="/registervolunteer">Register Volunteer</CustomLink> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

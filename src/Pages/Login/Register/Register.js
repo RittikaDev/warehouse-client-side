@@ -102,11 +102,11 @@ const Register = () => {
   }, [googleError]);
 
   // spinner
-  if (loading2) {
-    <Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>;
-  }
+  // if (loading2) {
+  //   <Spinner animation="border" role="status">
+  //     <span className="visually-hidden">Loading...</span>
+  //   </Spinner>;
+  // }
   return (
     <div className="page">
       <form className="container login-form" onSubmit={handleRegister}>
@@ -168,13 +168,7 @@ const Register = () => {
             ) : (
               ""
             )}
-            {loading2 ? (
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </Spinner>
-            ) : (
-              ""
-            )}
+
             <button className="btn">
               <input type="submit" id="submit" value="Submit" />
             </button>

@@ -9,10 +9,10 @@ const Inventory = () => {
   const [input, setInput] = useState(0);
   const quantityDecrease = (newQuantity) => {
     let quantity = parseInt(newQuantity) - 1;
-    console.log(quantity);
+    // console.log(quantity);
     setItem({ ...item, quantity: quantity });
     const updateQuantity = { quantity };
-    const url = `http://localhost:5000/inventory/${id}`;
+    const url = `https://intense-castle-01868.herokuapp.com/inventory/${id}`;
 
     fetch(url, {
       method: "PUT",
@@ -23,7 +23,7 @@ const Inventory = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("success", data);
+        // console.log("success", data);
       });
   };
   // console.log(item.quantity);
@@ -40,7 +40,7 @@ const Inventory = () => {
       let newQuantity = input + item.quantity;
       setItem({ ...item, quantity: newQuantity });
       const updateQuantity = { quantity: newQuantity };
-      const url = `http://localhost:5000/inventory/${id}`;
+      const url = `https://intense-castle-01868.herokuapp.com/inventory/${id}`;
       fetch(url, {
         method: "PUT",
         headers: {
@@ -50,7 +50,7 @@ const Inventory = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("success", data);
+          // console.log("success", data);
         });
     } else {
       alert("Please enter a valid number");

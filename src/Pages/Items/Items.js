@@ -11,7 +11,7 @@ const Items = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/items")
+    fetch("https://intense-castle-01868.herokuapp.com/items")
       .then((res) => res.json())
       .then((data) => setItems(data));
     setLoading(false);

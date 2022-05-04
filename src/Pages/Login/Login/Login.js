@@ -9,6 +9,7 @@ import {
 import auth from "../../../firebase.init";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Spinner } from "react-bootstrap";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({
@@ -67,10 +68,13 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
-    console.log(userInfo);
+    // console.log(userInfo);
     await signInWithEmail(userInfo.email, userInfo.password);
-    const { data } = await axios.post("http://localhost:5000/login", { email });
-    console.log(data);
+    const { data } = await axios.post(
+      "https://intense-castle-01868.herokuapp.com/login",
+      { email }
+    );
+    // console.log(data);
     localStorage.setItem("token", data.accessToken);
     navigate(from, { replace: true });
   };
@@ -128,6 +132,15 @@ const Login = () => {
               >
                 {errors.password}
               </p>
+            )}
+            {loading ? (
+              <div className="text-center w-100">
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              </div>
+            ) : (
+              ""
             )}
             <button className="btn text-center">
               <input type="submit" id="submit" value="Submit" />

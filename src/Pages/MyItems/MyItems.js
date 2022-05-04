@@ -17,7 +17,7 @@ const MyItems = () => {
   useEffect(() => {
     const getItems = async () => {
       const email = user?.email;
-      const url = `http://localhost:5000/item?email=${email}`;
+      const url = `https://intense-castle-01868.herokuapp.com/item?email=${email}`;
       try {
         const { data } = await axios.get(url, {
           headers: {
@@ -27,7 +27,7 @@ const MyItems = () => {
         console.log(localStorage.getItem("token"));
         setMyItems(data);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         // if (
         //   user?.reloadUserInfo?.providerUserInfo[0]?.providerId !== "google.com"
         // )
@@ -51,12 +51,12 @@ const MyItems = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/items/${id}`, {
+        fetch(`https://intense-castle-01868.herokuapp.com/items/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("deleted", data);
+            // console.log("deleted", data);
             const remaining = myItems.filter((item) => item._id !== id);
             setMyItems(remaining);
           });

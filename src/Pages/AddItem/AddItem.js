@@ -10,7 +10,7 @@ const AddItem = () => {
   //   const { register, handleSubmit } = useForm();
   //   const onSubmit = (data) => {
   //     console.log(data);
-  //     fetch("http://localhost:5000/items", {
+  //     fetch("https://intense-castle-01868.herokuapp.com/items", {
   //       method: "POST",
   //       headers: {
   //         "Content-Type": "application/json",
@@ -34,14 +34,18 @@ const AddItem = () => {
       description: event.target.description.value,
       supplier: event.target.supplier.value,
     };
-    axios.post("http://localhost:5000/items", addItem).then((res) => {
-      console.log(res);
-      const { data } = res;
-    });
-    axios.post("http://localhost:5000/item", addItem).then((res) => {
-      console.log(res);
-      const { data } = res;
-    });
+    axios
+      .post("https://intense-castle-01868.herokuapp.com/items", addItem)
+      .then((res) => {
+        // console.log(res);
+        const { data } = res;
+      });
+    axios
+      .post("https://intense-castle-01868.herokuapp.com/item", addItem)
+      .then((res) => {
+        // console.log(res);
+        const { data } = res;
+      });
   };
   return (
     <div className=" container">

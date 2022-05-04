@@ -4,7 +4,7 @@ const useItems = (id) => {
   const [item, setItem] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/inventory/${id}`)
+    fetch(`https://intense-castle-01868.herokuapp.com/inventory/${id}`)
       .then((res) => res.json())
       .then((data) => setItem(data));
   }, [id]);

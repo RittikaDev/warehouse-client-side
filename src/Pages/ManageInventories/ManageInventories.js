@@ -14,7 +14,7 @@ const ManageInventories = () => {
 
   //   pagination
   useEffect(() => {
-    fetch("http://localhost:5000/itemcount")
+    fetch("https://intense-castle-01868.herokuapp.com/itemcount")
       .then((res) => res.json())
       .then((data) => {
         const count = data.count;
@@ -23,7 +23,9 @@ const ManageInventories = () => {
       });
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:5000/items?page=${page}&size=${size}`)
+    fetch(
+      `https://intense-castle-01868.herokuapp.com/items?page=${page}&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, [page, size]);
@@ -39,7 +41,7 @@ const ManageInventories = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/items/${id}`, {
+        fetch(`https://intense-castle-01868.herokuapp.com/items/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+
 body {
   overflow-x: hidden;
+}
+.navbar-brand {
+  font-weight: 700;
+  font-family: "Patrick Hand SC", cursive;
+  text-shadow: 1px 1px 0px #ff0000;
 }
 .link:before {
   content: "";

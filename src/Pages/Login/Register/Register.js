@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { toast } from "react-toastify";
+import axios from "axios";
+import { Spinner } from "react-bootstrap";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
@@ -20,6 +21,8 @@ const Register = () => {
     password: "",
     general: "",
   });
+  const emailRef = useRef("");
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -27,15 +30,15 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-  useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
-    }
-  }, [from, navigate, user]);
   // Google sign in
   const [signInWithGoogle, googleUser, loading2, googleError] =
     useSignInWithGoogle(auth);
-
+  // github
+  if (user || googleUser) {
+    navigate(from, { replace: true });
+    console.log("redirect");
+    console.log(googleUser);
+  }
   // For email
   const handleEmail = (e) => {
     const emailRegexValidate = /\S+@\S+\.\S+/;
@@ -75,11 +78,17 @@ const Register = () => {
     }
   };
   // Register Function
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+    const email = emailRef.current.value;
     createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+    // const { data } = await axios.post("http://localhost:5000/login", { email });
+    // console.log(data);
+    // localStorage.setItem("token", data.accessToken);
+    // navigate(from, { replace: true });
+    // navigate(from, { replace: true });
   };
-  console.log(userInfo);
+  console.log(googleUser);
   useEffect(() => {
     const error = googleError;
     if (error) {
@@ -95,6 +104,13 @@ const Register = () => {
       }
     }
   }, [googleError]);
+
+  // spinner
+  if (loading2) {
+    <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>;
+  }
   return (
     <div className="page">
       <form className="container login-form" onSubmit={handleRegister}>
@@ -110,6 +126,7 @@ const Register = () => {
             <label for="email">Email</label>
             <span>
               <input
+                ref={emailRef}
                 type="email"
                 id="email"
                 placeholder="Email"
@@ -155,13 +172,13 @@ const Register = () => {
               <h3 className="mt-2 px-2">or</h3>
               <div style={{ height: "1.5px" }} className="bg-danger w-25"></div>
             </div>
-            <div
+            <button
               className="text-center logo btn"
               onClick={() => signInWithGoogle()}
             >
               Sign In With Google
-            </div>
-            <p>
+            </button>
+            <p className="text-center">
               Already Have an account?
               <Link to="/login" className="btn ms-3">
                 {" "}

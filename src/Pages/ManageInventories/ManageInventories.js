@@ -4,6 +4,7 @@ import { Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ManageInventories = () => {
   const [items, setItems] = useState([]);
@@ -26,19 +27,30 @@ const ManageInventories = () => {
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, [page, size]);
+
   const itemDelete = (id) => {
-    const proceed = window.confirm("Are you sure you want to delete?");
-    if (proceed) {
-      fetch(`http://localhost:5000/items/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("deleted", data);
-          const remaining = items.filter((item) => item._id !== id);
-          setItems(remaining);
-        });
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/items/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("deleted", data);
+            const remaining = items.filter((item) => item._id !== id);
+            setItems(remaining);
+          });
+        Swal.fire("Deleted!", "One item has been deleted.", "success");
+      }
+    });
   };
   return (
     <div className="manage-inventory container my-4">
@@ -71,6 +83,7 @@ const ManageInventories = () => {
                   <FontAwesomeIcon
                     icon={faTrash}
                     className="icon2"
+                    style={{ fill: "red" }}
                     onClick={() => itemDelete(item._id)}
                   ></FontAwesomeIcon>
                 </td>

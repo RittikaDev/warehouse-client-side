@@ -149,7 +149,13 @@ input::-moz-focus-inner {
   margin-left: 160px;
 }
 @media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
   .logo {
     margin-left: 0px;
+  }
+  #submit {
+    margin: 10px 140px 10px auto;
   }
 }

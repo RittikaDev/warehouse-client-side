@@ -7,12 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const MyItems = () => {
   const [user] = useAuthState(auth);
   const [myItems, setMyItems] = useState();
   const navigate = useNavigate();
-
+  console.log(user?.email);
   useEffect(() => {
     const getItems = async () => {
       const email = user?.email;
@@ -34,21 +35,31 @@ const MyItems = () => {
       }
     };
     getItems();
-  }, [user]);
-  console.log(myItems?.length);
+  }, []);
+  // console.log(myItems?.length);
   const itemDelete = (id) => {
-    const proceed = window.confirm("Are you sure you want to delete?");
-    if (proceed) {
-      fetch(`http://localhost:5000/item/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("deleted", data);
-          const remaining = myItems.filter((item) => item._id !== id);
-          setMyItems(remaining);
-        });
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/items/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("deleted", data);
+            const remaining = myItems.filter((item) => item._id !== id);
+            setMyItems(remaining);
+          });
+        Swal.fire("Deleted!", "One item has been deleted.", "success");
+      }
+    });
   };
   return (
     <div className="manage-inventory container">

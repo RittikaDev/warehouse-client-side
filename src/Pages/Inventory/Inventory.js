@@ -99,9 +99,14 @@ const Inventory = () => {
                   </p>
                 </div>
               </div>
-              <button onClick={() => quantityDecrease(item.quantity)}>
-                Delivered
-              </button>
+              <div className="text-center py-2">
+                <button
+                  className="btn1 py-2"
+                  onClick={() => quantityDecrease(item.quantity)}
+                >
+                  Delivered
+                </button>
+              </div>
             </div>
           </div>
 
@@ -113,19 +118,19 @@ const Inventory = () => {
                 <input
                   type="number"
                   placeholder="Restock Items"
-                  className="px-5"
+                  className="px-5 "
                   onBlur={takeInput}
                 />
               </div>
               <div className="col-lg-3">
-                <button className="btn btn-primary ms-3">Add</button>
+                <button className="btn1 ms-3 mt-0 py-3">Add</button>
               </div>
             </form>
           </div>
 
           <div className="row">
             <div className="col-lg-12 text-center">
-              <Link to="/manageinventory" className="btn btn-primary ">
+              <Link to="/manageinventory" className="btn1  ">
                 Manage Inventories
               </Link>
             </div>

@@ -25,7 +25,7 @@ const AddItem = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const addItem = {
-      email: user.email,
+      email: event.target.email.value,
       title: event.target.title.value,
       price: event.target.price.value,
       quantity: event.target.quantity.value,
@@ -52,7 +52,8 @@ const AddItem = () => {
               className="input"
               type="text"
               placeholder="Email"
-              value={user?.email}
+              // value={user?.email}
+              name="email"
             />
           </div>
         </div>

@@ -18,9 +18,8 @@ const Header = () => {
     <>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">
-            <img style={{ width: "120px", height: "50px" }} alt="" />
-            <FontAwesomeIcon icon={faCoffee} className="icon"></FontAwesomeIcon>
+          <Navbar.Brand href="#home" className="navbar-brand">
+            <h1>Door2Door</h1>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

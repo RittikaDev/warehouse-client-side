@@ -15,36 +15,25 @@ const Banner = () => {
             <div className="col-lg-7 me-4">
               <Fade top>
                 <div className="home__data">
-                  <h1 className="home__title">lorem lrem ipsum</h1>
-                  <p className="hom__description">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex
-                    mollitia eaque odio voluptatem voluptatum cupiditate! Beatae
-                    in ullam neque nemo!
-                  </p>
+                  <h1 className="home__title">Door2Door</h1>
+                  <h5 className="home__description">
+                    Your First Hand Grocery Warehouse with best quality and
+                    quantity{" "}
+                  </h5>
                   <div className="home__value">
                     <div className="card-home px-5 py-2">
                       <h1 className="home__value-number">
-                        9k <span>+</span>
+                        4k <span>+</span>
                       </h1>
                       <span className="home__value-description">
-                        Premium <br /> Product
+                        Premium Product
                       </span>
                     </div>
                     <div className="card-home px-5 py-2">
                       <h1 className="home__value-number">
-                        9k <span>+</span>
+                        1k <span>+</span>
                       </h1>
-                      <span className="home__value-description">
-                        Premium <br /> Product
-                      </span>
-                    </div>
-                    <div className="card-home px-5 py-2">
-                      <h1 className="home__value-number">
-                        9k <span>+</span>
-                      </h1>
-                      <span className="home__value-description">
-                        Premium <br /> Product
-                      </span>
+                      <span className="home__value-description">Supplier</span>
                     </div>
                   </div>
                 </div>

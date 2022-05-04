@@ -12,7 +12,8 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-content">
-        <h3>Lorem ipsum</h3>
+        <h3>Door2Door</h3>
+        <h5>Foolow us on our socials</h5>
         <ul className="socials">
           <Nav.Link href="#" className="icon-footer facebookIcon">
             <span className="tooltip">Facebook</span>
@@ -40,17 +41,10 @@ const Footer = () => {
               ></FontAwesomeIcon>
             </span>
           </Nav.Link>
-          <li>{/* <FontAwesomeIcon className="a" icon={faFacebookF} /> */}</li>
-          {/* <li>
-            <FontAwesomeIcon className="a" icon={faTwitter} />
-          </li>
-          <li>
-            <FontAwesomeIcon className="a" icon={faInstagram} />
-          </li> */}
         </ul>
       </div>
       <div className="footer-bottom">
-        <p>copyright &copy; 2022 lorem </p>
+        <p>copyright &copy; 2022 Door2Door </p>
       </div>
     </footer>
   );

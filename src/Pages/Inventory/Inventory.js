@@ -10,21 +10,44 @@ const Inventory = () => {
   const quantityDecrease = (newQuantity) => {
     let quantity = parseInt(newQuantity) - 1;
     // console.log(quantity);
-    setItem({ ...item, quantity: quantity });
-    const updateQuantity = { quantity };
-    const url = `https://intense-castle-01868.herokuapp.com/inventory/${id}`;
 
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateQuantity),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log("success", data);
-      });
+    if (quantity <= 0) {
+      quantity = 0;
+      let sold = "Sold Out";
+      setItem({ ...item, quantity: quantity, sold: sold });
+      const updateQuantity = { quantity, sold };
+      // const url = `https://intense-castle-01868.herokuapp.com/inventory/${id}`;
+      const url = `http://localhost:5000/inventory/${id}`;
+
+      fetch(url, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateQuantity),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log("success", data);
+        });
+    } else {
+      setItem({ ...item, quantity: quantity });
+      const updateQuantity = { quantity };
+      // const url = `https://intense-castle-01868.herokuapp.com/inventory/${id}`;
+      const url = `http://localhost:5000/inventory/${id}`;
+
+      fetch(url, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateQuantity),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log("success", data);
+        });
+    }
   };
   // console.log(item.quantity);
 
@@ -38,7 +61,9 @@ const Inventory = () => {
     e.preventDefault();
     if (input > 0) {
       let newQuantity = input + item.quantity;
-      setItem({ ...item, quantity: newQuantity });
+      let sold = "Available";
+
+      setItem({ ...item, quantity: newQuantity, sold: sold });
       const updateQuantity = { quantity: newQuantity };
       const url = `https://intense-castle-01868.herokuapp.com/inventory/${id}`;
       fetch(url, {
@@ -75,14 +100,19 @@ const Inventory = () => {
                 </p>
               </div>
               <div className="row">
-                <div className="col-lg-6">
+                <div className="col-lg-4">
                   <p className="inventory-textbox">
                     <strong>Price :</strong> {item.price}
                   </p>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-4">
                   <p className="inventory-textbox">
                     <strong>Quantity :</strong> {item.quantity}
+                  </p>
+                </div>
+                <div className="col-lg-4">
+                  <p className="inventory-textbox">
+                    <strong>Sold :</strong> {item.sold}
                   </p>
                 </div>
               </div>

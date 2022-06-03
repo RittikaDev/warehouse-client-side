@@ -74,7 +74,7 @@ const Login = () => {
       "https://intense-castle-01868.herokuapp.com/login",
       { email }
     );
-    // console.log(data);
+    console.log(data);
     localStorage.setItem("token", data.accessToken);
     navigate(from, { replace: true });
   };

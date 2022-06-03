@@ -6,7 +6,7 @@ Check it out here :- [Door2Door](https://warehouse-management-37597.web.app/).
 
 This is a Warehouse management website. A quick overview of this website is listed down below:-
 
-The Home Page consists of:-
+The Home Page consists of :-
 
 - Navbar
 - A static banner with a fixed image on th background with an animation

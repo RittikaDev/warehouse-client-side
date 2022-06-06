@@ -34,8 +34,3 @@ Four questions were answered as per the requirements in the BLog page.
 - NodeJs for server site
 - Sweet Alert
 - React Reveal
-
-## Admin Credentials:-
-
-- email : sagar@gmail.com
-- password : mnbvcxz123
